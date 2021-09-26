@@ -21,5 +21,12 @@ namespace ExtronSharp.Devices
         }
 
         public abstract void WriteLine(string line);
+
+        public string WriteAndReadLine(string line)
+        {
+            WriteLine(line);
+            WaitForLine();
+            return ReadLine();
+        }
     }
 }

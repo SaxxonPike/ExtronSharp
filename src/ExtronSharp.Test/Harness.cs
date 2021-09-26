@@ -20,10 +20,13 @@ namespace ExtronSharp.Test
             }
 
             var device = new ExDvs304(adapter);
-            device.SetVideoInput(1);
-            device.SetVideoInput(2);
-            device.SetVideoInput(3);
-            device.SetVideoInput(4);
+
+            device.SetOutputRate(new ExDvs304.OutputRate(
+                ExDvs304.Resolution.Res1080p, 
+                ExDvs304.RefreshRate.Rate60));
+            //device.SetActivePixels(500);
+            
+            
             adapter.Stop();
         }
     }
